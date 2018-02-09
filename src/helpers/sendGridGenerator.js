@@ -20,7 +20,7 @@ const requestGenerator = async ({ toEmail: users, subject, templateId, substitut
       name: sendgridConf.nameFromEmail,
     },
     subject,
-    content: [{ type: 'text/html', value: `<html><p>${mailBody}</p></html>` }],
+    content: [{ type: 'text/html', value: `<html><p>${(mailBody !== undefined) ? mailBody : ''}</p></html>` }],
     template_id: templateId,
   };
   logger.info('Calling the Wrapper');
