@@ -27,6 +27,4 @@ const requestGenerator = async ({ toEmail: users, subject, templateId, substitut
   await sendGridRequestWrapper.requestWrapper(mailDetail);
 };
 
-module.exports = {
-  requestGenerator,
-};
+module.exports = requestGenerator;
