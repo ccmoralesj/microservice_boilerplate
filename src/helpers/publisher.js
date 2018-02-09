@@ -3,8 +3,8 @@ const remit = require('remit');
 const REMIT_CONFIG = require('../config/remit');
 const services = require('../config/services');
 const appConfig = require('../config/app');
-// const queueFactory = require('../helper/queue');
-const queue = require('../helper/queue');
+// const queueFactory = require('../helpers/queue');
+const queue = require('.//queue');
 
 const { service: serviceOwnName } = appConfig;
 

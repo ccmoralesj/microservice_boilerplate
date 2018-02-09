@@ -1,5 +1,5 @@
 global.Promise = require('bluebird');
-const logger = require('./logger');
+const logger = require('winston');
 const server = require('./server');
 
 

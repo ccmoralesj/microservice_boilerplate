@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const logger = require('../logger');
+const logger = require('winston');
 const handlers = require('./handlers');
 const appConfig = require('../config/app');
 const BusinessError = require('../BusinessError');
@@ -30,7 +30,7 @@ const handlerAdder = remit => (item) => {
     throw new Error('missing enviroment SERVICE_NAME');
   }
   const queueName = `${appName}.${serviceName}.${endpointName}`;
-  logger.trace(`add handler for ${pattern} with name ${queueName}`);
+  logger.debug(`add handler for ${pattern} with name ${queueName}`);
   return remit
     .endpoint(queueName)
     .handler(async (event) => {

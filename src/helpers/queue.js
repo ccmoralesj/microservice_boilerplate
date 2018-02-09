@@ -1,4 +1,4 @@
-const logger = require('../logger');
+const logger = require('winston');
 const BusinessError = require('../BusinessError');
 const appConfig = require('../config/app');
 
@@ -12,7 +12,7 @@ const queue = ({ serviceName, interfaceMethod, client, options = {} }) => {
   const run = client.request(queueName).options(options);
 
   return async (msg) => {
-    logger.trace('Publish on interface', queueName, 'with data', msg);
+    logger.debug('Publish on interface', queueName, 'with data', msg);
     const response = await run(msg);
     const { data, error, ok } = response;
     if (!ok) {
