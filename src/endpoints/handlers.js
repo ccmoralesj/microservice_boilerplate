@@ -1,12 +1,9 @@
-const { MathInterface } = require('../interfaces');
+const mailInterface = require('../interfaces/sendMail');
 
 const handlers = [
   {
-    pattern: 'sum',
-    handler: (msg) => {
-      const { a, b } = msg.data;
-      return MathInterface.sum(a, b);
-    },
+    pattern: 'sendMail',
+    handler: msg => mailInterface.sendMail(msg.data),
   },
 ];
 
