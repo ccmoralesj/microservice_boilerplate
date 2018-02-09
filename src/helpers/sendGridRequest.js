@@ -16,20 +16,15 @@ const requestWrapper = async (mailDetail) => {
   logger.info('Sending request!');
   logger.info(JSON.stringify(request));
 
-  client.request(request)
-    .then(([response, body]) => {
-      logger.info(`Status Code: ${response.statusCode}`);
-      logger.info(`Response body: ${response.body}`);
-      logger.info(`Body itself ${body}`);
+  const [response, body] = await client.request(request);
+  logger.info(`Status Code: ${response.statusCode}`);
+  logger.info(`Response body: ${response.body}`);
+  logger.info(`Body itself ${body}`);
 
-      if (response.statusCode !== 200 && response.statusCode !== 202) {
-        throw new BusinessError(errors.EMAIL_WAS_NOT_SEND);
-      }
-      return response.statusCode;
-    })
-    .catch(e => {
-      logger.error(e);
-    });
+  if (response.statusCode !== 200 && response.statusCode !== 202) {
+    throw new BusinessError(errors.EMAIL_WAS_NOT_SEND);
+  }
+  return response.statusCode;
 };
 
 module.exports = {
