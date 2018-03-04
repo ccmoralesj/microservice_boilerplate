@@ -1,7 +1,7 @@
 {
-  "name": "hmiservice-mail",
-  "version": "1.0.0",
-  "description": "",
+  "name": "microsevice_boilerplate",
+  "version": "0.0.1",
+  "description": "Microservice boilerplate based on node and rabbitMQ messaging",
   "main": "src/index.js",
   "engines": {
     "node": ">=8"
@@ -9,46 +9,32 @@
   "private": true,
   "scripts": {
     "start": "node src",
-    "test": "ava",
-    "fix": "eslint fix",
-    "lint": "eslint src",
+    "test": "mocha",
     "commit": "git add . && git-cz"
   },
   "dependencies": {
-    "@sendgrid/client": "6.2.1",
-    "@sendgrid/mail": "6.2.1",
     "bluebird": "^3.5.1",
     "dotenv": "^4.0.0",
     "lodash": "^4.17.4",
+    "mongoose": "4.11.11",
+    "mongoose-lean-virtuals": "0.2.0",
     "remit": "^2.0.2",
-    "winston": "2.4.0"
+    "winston": "2.3.1"
   },
   "devDependencies": {
     "@types/node": "^8.0.32",
-    "ava": "^0.22.0",
-    "cz-conventional-changelog": "^2.1.0",
+    "proxyrequire": "^1.0.15",
+    "arrow-mocha": "1.0.1",
+    "chai": "4.1.2",
+    "chai-as-promised": "7.1.1",
+    "cz-conventional-changelog": "2.0.0",
+    "dirty-chai": "2.0.1",
     "eslint": "^4.8.0",
-    "eslint-config-airbnb-base": "^12.0.1",
-    "eslint-plugin-import": "^2.7.0",
-    "proxyrequire": "^1.0.15"
-  },
-  "ava": {
-    "files": [
-      "src/**/*spec.js",
-      ".test/**/*.js"
-    ],
-    "source": [
-      ".test/**/*.{js}",
-      "src/**/*.{js}"
-    ],
-    "concurrency": 5,
-    "failFast": false,
-    "failWithoutAssertions": true,
-    "tap": false,
-    "powerAssert": false,
-    "match": [
-      "!integration*"
-    ]
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.8.0",
+    "mocha": "3.5.0",
+    "sinon": "3.2.1",
+    "sinon-as-promised": "4.0.3"
   },
   "config": {
     "commitizen": {
